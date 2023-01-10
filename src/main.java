@@ -30,14 +30,14 @@ public class main {
 
      private static void JualBeli() {
           Scanner InputUser = new Scanner(System.in);
-          int pilihan, harga, penawaran;
-          String nama, jawaban;
-
+          int pilihan, harga, penawaran, jawaban;
+          String nama;
           boolean tawar;
           do {
                System.out.println("\n===== JUAL BELI =====\n");
                System.out.println("MENU");
                System.out.println("1. Jual Mobil");
+               System.out.println("0. Back To Menu");
                System.out.print("Masukan Pilihan Anda: ");
                pilihan = InputUser.nextInt();
 
@@ -45,7 +45,8 @@ public class main {
                     case 1:
                          System.out.print("masukan nama mobil yang ingin dijual: ");
                          nama = InputUser.next();
-                         System.out.println("nama mobil anda: " + nama);
+
+                         System.out.println("nama mobil: " + nama);
 
                          System.out.print("harga mobil yang ingin dijual: ");
                          harga = InputUser.nextInt();
@@ -57,10 +58,16 @@ public class main {
                          System.out.println("Harga yang saya Tawarkan ");
                          penawaran = InputUser.nextInt();
 
-                         tawar = penawaran <= harga;
-                         jawaban = tawar ? "ya boleh" : "tidak boleh";
+                         // Di benerin lagi logicnya kayknya salah
+                         tawar = penawaran < harga;
 
-                         System.out.println(jawaban);
+                         jawaban = tawar ? penawaran : harga;
+                         System.out.println("Harga Mobil: " + jawaban);
+
+                         System.out.println("=====PENJUALAN=====");
+                         System.out.println("Mobil " + nama);
+                         System.out.println("Harga Mobil Rp " + jawaban);
+                         System.out.println("Berhasil Terjual");
 
                          break;
 
